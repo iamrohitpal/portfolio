@@ -1,0 +1,24 @@
+{
+  "data": [
+    {
+      "login": "Laravel",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/958072?s=200&v=4",
+      "__typename": "Organization"
+    },
+    {
+      "login": "Bagisto",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/43133047?s=200&v=4",
+      "__typename": "Organization"
+    },
+    {
+      "login": "Krayin Crm",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/86250863?s=200&v=4",
+      "__typename": "Organization"
+    },
+    {
+      "login": "Uno Pim",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/176464716?s=200&v=4",
+      "__typename": "Organization"
+    }
+  ]
+}
