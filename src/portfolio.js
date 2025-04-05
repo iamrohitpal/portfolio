@@ -2,7 +2,7 @@
 
 // Website related settings
 const settings = {
-  isSplash: true, // Change this to false if you don't want Splash screen.
+  isSplash: false, // Change this to false if you don't want Splash screen.
 };
 
 //SEO Related settings
@@ -115,14 +115,14 @@ const skills = {
 
 // Education Page
 const competitiveSites = {
-  competitiveSites: [
-  ],
+  competitiveSites: [],
 };
 
 const degrees = {
   degrees: [
     {
-      title: "Madhu Vachaspati Institute of Engineering and Technology Kaushambi, Prayagraj",
+      title:
+        "Madhu Vachaspati Institute of Engineering and Technology Kaushambi, Prayagraj",
       subtitle: "B.Tech. in Computer Science And Engineering",
       logo_path: "mviet.png",
       alt_name: "MVIET Kaushambi",
@@ -200,7 +200,7 @@ const experience = {
           description:
             "As a Junior PHP Developer at Outright System Pvt. Ltd., I am responsible for developing and maintaining web applications using PHP and the Laravel framework. My role includes writing clean and efficient code, debugging issues, and collaborating with senior developers to build scalable and high-performing applications. I work closely with the team to implement new features, optimize performance, and ensure a smooth user experience.",
           color: "#0879bf",
-        }
+        },
       ],
     },
     {
