@@ -2,7 +2,7 @@
   "private": true,
   "name": "rohit-portfolio",
   "version": "1.0.0",
-  "homepage": "https://iamrohitpal.github.io/portfolio",
+  "homepage": ".",
   "scripts": {
     "build": "react-scripts --openssl-legacy-provider build",
     "predeploy": "npm run build",
