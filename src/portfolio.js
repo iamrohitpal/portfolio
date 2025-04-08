@@ -33,7 +33,7 @@ const socialMediaLinks = [
   // github: "https://github.com/rohitpal-webkul/rohitpal-webkul",
   // linkedin: "https://www.linkedin.com/in/iamrohitpal/",
   // gmail: "amitkumarofficial@outlook.in",
-  // instagram: "https://www.instagram.com/iam_rohit_pal/"
+  // instagram: "https://www.instagram.com/iamrohitpalg/"
 
   {
     name: "Github",
@@ -55,7 +55,7 @@ const socialMediaLinks = [
   },
   {
     name: "Instagram",
-    link: "https://www.instagram.com/iam_rohit_pal/",
+    link: "https://www.instagram.com/iamrohitpalg/",
     fontAwesomeIcon: "fa-instagram",
     backgroundColor: "#E4405F",
   },
