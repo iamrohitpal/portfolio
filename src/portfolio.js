@@ -126,7 +126,7 @@ const degrees = {
       subtitle: "B.Tech. in Computer Science And Engineering",
       logo_path: "mviet.png",
       alt_name: "MVIET Kaushambi",
-      duration: "2021 - Present",
+      duration: "2022 - 2025",
       descriptions: [
         "⚡ Studied core software engineering subjects, including Data Structures, Algorithms, Database Management Systems (DBMS), Operating Systems (OS), Computer Architecture (CA), and Artificial Intelligence (AI).",
         "⚡ Completed specialized courses in Deep Learning, Data Science, Cloud Computing, and Full Stack Development, gaining hands-on experience in modern technologies.",
@@ -139,8 +139,8 @@ const degrees = {
       title: "Government Polytechnic Aurai",
       subtitle: "Diploma",
       logo_path: "diploma.png",
-      alt_name: "Indiana University Bloomington",
-      duration: "2019 - 2021",
+      alt_name: "Government Polytechnic Aurai",
+      duration: "2019 - 2022",
       descriptions: [
         "⚡ Gained a strong foundation in core engineering subjects, including Data Structures, Algorithms, Database Management Systems (DBMS), Operating Systems (OS), and Computer Architecture (CA).",
         "⚡ Completed additional coursework in Deep Learning, Data Science, Cloud Computing, and Full Stack Development to enhance technical skills.",
