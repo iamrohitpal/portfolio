@@ -1,50 +1,108 @@
 {
-  "closed": 33,
+  "closed": 4,
   "data": [
     {
-      "id": "MDExOlB1bGxSZXF1ZXN0NDA5NDQxNDk1",
-      "title": "Migrated some files from TF 1.0 to 2.0 Migrated some files from TF 1.0 to 2.0 Migrated some files from TF 1.0 to 2.0",
-      "url": "#",
-      "state": "OPEN",
-      "mergedBy": null,
-      "createdAt": "2020-04-27T11:34:31Z",
-      "number": 1746,
-      "changedFiles": 2,
+      "id": "PR_6",
+      "title": "fix: update the port from 1001 to 6001",
+      "url": "https://github.com/libre-pim/librepim-dev/pull/6",
+      "state": "MERGED",
+      "mergedBy": {
+        "avatarUrl": "https://avatars.githubusercontent.com/u/104519967?v=4",
+        "url": "https://github.com/rohitpal-webkul",
+        "login": "rohitpal-webkul"
+      },
+      "createdAt": "2026-01-09T05:44:49Z",
+      "number": 6,
+      "changedFiles": 1,
       "additions": 1,
-      "deletions": 6,
+      "deletions": 1,
       "baseRepository": {
-        "name": "",
-        "url": "#",
+        "name": "librepim-dev",
+        "url": "https://github.com/libre-pim/librepim-dev",
         "owner": {
-          "avatarUrl": "#",
-          "login": "iamrohitpal",
-          "url": "#"
+          "avatarUrl": "https://avatars.githubusercontent.com/u/190806461?v=4",
+          "login": "libre-pim",
+          "url": "https://github.com/libre-pim"
         }
       }
     },
     {
-      "id": "MDExOlB1bGxSZXF1ZXN0MjQzMzQxOTg5",
-      "title": "Face Verification and Recognition Face Verification and Recognition Face Verification and Recognition",
-      "url": "#",
-      "state": "CLOSED",
-      "mergedBy": null,
-      "createdAt": "2019-01-09T13:56:53Z",
-      "number": 14,
-      "changedFiles": 268,
-      "additions": 1419,
+      "id": "PR_5",
+      "title": "fix: resolve Docker installation issues for LibrePIM",
+      "url": "https://github.com/libre-pim/librepim-dev/pull/5",
+      "state": "MERGED",
+      "mergedBy": {
+        "avatarUrl": "https://avatars.githubusercontent.com/u/104519967?v=4",
+        "url": "https://github.com/rohitpal-webkul",
+        "login": "rohitpal-webkul"
+      },
+      "createdAt": "2026-01-07T12:37:47Z",
+      "number": 5,
+      "changedFiles": 1,
+      "additions": 1,
       "deletions": 1,
       "baseRepository": {
-        "name": "",
-        "url": "#",
+        "name": "librepim-dev",
+        "url": "https://github.com/libre-pim/librepim-dev",
         "owner": {
-          "avatarUrl": "#",
-          "login": "iamrohitpal",
-          "url": "#"
+          "avatarUrl": "https://avatars.githubusercontent.com/u/190806461?v=4",
+          "login": "libre-pim",
+          "url": "https://github.com/libre-pim"
+        }
+      }
+    },
+    {
+      "id": "PR_4",
+      "title": "Fix workspace path in packages:build script",
+      "url": "https://github.com/libre-pim/librepim-dev/pull/4",
+      "state": "MERGED",
+      "mergedBy": {
+        "avatarUrl": "https://avatars.githubusercontent.com/u/104519967?v=4",
+        "url": "https://github.com/rohitpal-webkul",
+        "login": "rohitpal-webkul"
+      },
+      "createdAt": "2025-12-30T16:30:57Z",
+      "number": 4,
+      "changedFiles": 1,
+      "additions": 1,
+      "deletions": 1,
+      "baseRepository": {
+        "name": "librepim-dev",
+        "url": "https://github.com/libre-pim/librepim-dev",
+        "owner": {
+          "avatarUrl": "https://avatars.githubusercontent.com/u/190806461?v=4",
+          "login": "libre-pim",
+          "url": "https://github.com/libre-pim"
+        }
+      }
+    },
+    {
+      "id": "PR_525",
+      "title": "Enhance image URLs, service types, homepage carousel, and category filters",
+      "url": "https://github.com/bagisto/headless-ecommerce/pull/525",
+      "state": "MERGED",
+      "mergedBy": {
+        "avatarUrl": "https://avatars.githubusercontent.com/u/104519967?v=4",
+        "url": "https://github.com/rohitpal-webkul",
+        "login": "rohitpal-webkul"
+      },
+      "createdAt": "2025-06-20T10:58:21Z",
+      "number": 525,
+      "changedFiles": 5,
+      "additions": 45,
+      "deletions": 10,
+      "baseRepository": {
+        "name": "headless-ecommerce",
+        "url": "https://github.com/bagisto/headless-ecommerce",
+        "owner": {
+          "avatarUrl": "https://avatars.githubusercontent.com/u/43133047?v=4",
+          "login": "bagisto",
+          "url": "https://github.com/bagisto"
         }
       }
     }
   ],
-  "merged": 54,
-  "open": 13,
-  "totalCount": 100
+  "merged": 19,
+  "open": 1,
+  "totalCount": 24
 }

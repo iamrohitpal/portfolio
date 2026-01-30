@@ -4,246 +4,19 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const openSource = {
-  githubConvertedToken: process.env.GITHUB_TOKEN,
-  githubUserName: process.env.GITHUB_USERNAME,
-};
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
+const GITHUB_USERNAMES = ["rohitpal-webkul", "iamrohitpal"];
 
-const query_pr = {
-  query: `
-	query {
-	  user(login: "${openSource.githubUserName}"){
-	    pullRequests(last: 100, orderBy: {field: CREATED_AT, direction: DESC}){
-      totalCount
-      nodes{
-        id
-        title
-        url
-        state
-	      mergedBy {
-	          avatarUrl
-	          url
-	          login
-	      }
-	      createdAt
-	      number
-        changedFiles
-	      additions
-	      deletions
-        baseRepository {
-	          name
-	          url
-	          owner {
-	            avatarUrl
-	            login
-	            url
-	          }
-	        }
-      }
-    }
-	}
+if (!GITHUB_TOKEN) {
+  console.error("Error: GITHUB_TOKEN is not defined in .env or environment variables.");
+  process.exit(1);
 }
-	`,
-};
-
-const query_issue = {
-  query: `query{
-
-		user(login: "${openSource.githubUserName}") {
-    issues(last: 100, orderBy: {field:CREATED_AT, direction: DESC}){
-      totalCount
-      nodes{
-      	id
-        closed
-        title
-        createdAt
-        url
-        number
-        assignees(first:100){
-          nodes{
-            avatarUrl
-            name
-            url
-          }
-        }
-        repository{
-          name
-          url
-          owner{
-            login
-            avatarUrl
-            url
-          }
-        }
-      }
-    }
-  }
-
-	}`,
-};
-
-const query_org = {
-  query: `query{
-	user(login: "${openSource.githubUserName}") {
-	    repositoriesContributedTo(last: 100){
-	      totalCount
-	      nodes{
-	        owner{
-	          login
-	          avatarUrl
-	          __typename
-	        }
-	      }
-	    }
-	  }
-	}`,
-};
-
-const query_pinned_projects = {
-  query: `
-	query { 
-	  user(login: "${openSource.githubUserName}") { 
-	    pinnedItems(first: 6, types: REPOSITORY) {
-	      totalCount
-	      nodes{
-	        ... on Repository{
-	          id
-		          name
-		          createdAt,
-		          url,
-		          description,
-		          isFork,
-		          languages(first:10){
-		            nodes{
-		              name
-		            }
-		          }
-	        }
-	      }
-		  }
-	  }
-	}
-	`,
-};
 
 const baseUrl = "https://api.github.com/graphql";
-
 const headers = {
   "Content-Type": "application/json",
-  Authorization: "bearer " + openSource.githubConvertedToken,
+  Authorization: "bearer " + GITHUB_TOKEN,
 };
-
-fetch(baseUrl, {
-  method: "POST",
-  headers: headers,
-  body: JSON.stringify(query_pr),
-})
-  .then((response) => response.text())
-  .then((txt) => {
-    const data = JSON.parse(txt);
-    var cropped = { data: [] };
-    cropped["data"] = data["data"]["user"]["pullRequests"]["nodes"];
-
-    var open = 0;
-    var closed = 0;
-    var merged = 0;
-    for (var i = 0; i < cropped["data"].length; i++) {
-      if (cropped["data"][i]["state"] === "OPEN") open++;
-      else if (cropped["data"][i]["state"] === "MERGED") merged++;
-      else closed++;
-    }
-
-    cropped["open"] = open;
-    cropped["closed"] = closed;
-    cropped["merged"] = merged;
-    cropped["totalCount"] = cropped["data"].length;
-
-    console.log("Fetching the Pull Request Data.\n");
-    fs.writeFile(
-      "./src/shared/opensource/pull_requests.json",
-      JSON.stringify(cropped),
-      function (err) {
-        if (err) {
-          console.log(err);
-        }
-      }
-    );
-  })
-  .catch((error) => console.log(JSON.stringify(error)));
-
-fetch(baseUrl, {
-  method: "POST",
-  headers: headers,
-  body: JSON.stringify(query_issue),
-})
-  .then((response) => response.text())
-  .then((txt) => {
-    const data = JSON.parse(txt);
-    var cropped = { data: [] };
-    cropped["data"] = data["data"]["user"]["issues"]["nodes"];
-
-    var open = 0;
-    var closed = 0;
-    for (var i = 0; i < cropped["data"].length; i++) {
-      if (cropped["data"][i]["closed"] === false) open++;
-      else closed++;
-    }
-
-    cropped["open"] = open;
-    cropped["closed"] = closed;
-    cropped["totalCount"] = cropped["data"].length;
-
-    console.log("Fetching the Issues Data.\n");
-    fs.writeFile(
-      "./src/shared/opensource/issues.json",
-      JSON.stringify(cropped),
-      function (err) {
-        if (err) {
-          console.log(err);
-        }
-      }
-    );
-  })
-  .catch((error) => console.log(JSON.stringify(error)));
-
-fetch(baseUrl, {
-  method: "POST",
-  headers: headers,
-  body: JSON.stringify(query_org),
-})
-  .then((response) => response.text())
-  .then((txt) => {
-    const data = JSON.parse(txt);
-    const orgs = data["data"]["user"]["repositoriesContributedTo"]["nodes"];
-    var newOrgs = { data: [] };
-    for (var i = 0; i < orgs.length; i++) {
-      var obj = orgs[i]["owner"];
-      if (obj["__typename"] === "Organization") {
-        var flag = 0;
-        for (var j = 0; j < newOrgs["data"].length; j++) {
-          if (JSON.stringify(obj) === JSON.stringify(newOrgs["data"][j])) {
-            flag = 1;
-            break;
-          }
-        }
-        if (flag === 0) {
-          newOrgs["data"].push(obj);
-        }
-      }
-    }
-
-    console.log("Fetching the Contributed Organization Data.\n");
-    fs.writeFile(
-      "./src/shared/opensource/organizations.json",
-      JSON.stringify(newOrgs),
-      function (err) {
-        if (err) {
-          console.log(err);
-        }
-      }
-    );
-  })
-  .catch((error) => console.log(JSON.stringify(error)));
 
 const languages_icons = {
   Python: "logos-python",
@@ -258,49 +31,232 @@ const languages_icons = {
   PHP: "logos-php",
   Dockerfile: "simple-icons:docker",
   Rust: "logos-rust",
+  Vue: "logos-vue",
+  TypeScript: "logos-typescript-icon",
+  Laravel: "logos-laravel",
+  Symfony: "logos-symfony",
 };
 
-fetch(baseUrl, {
-  method: "POST",
-  headers: headers,
-  body: JSON.stringify(query_pinned_projects),
-})
-  .then((response) => response.text())
-  .then((txt) => {
-    const data = JSON.parse(txt);
-    // console.log(txt);
-    const projects = data["data"]["user"]["pinnedItems"]["nodes"];
-    var newProjects = { data: [] };
-    for (var i = 0; i < projects.length; i++) {
-      var obj = projects[i];
-      var langobjs = obj["languages"]["nodes"];
-      var newLangobjs = [];
-      for (var j = 0; j < langobjs.length; j++) {
-        if (langobjs[j]["name"] in languages_icons) {
-          newLangobjs.push({
-            name: langobjs[j]["name"],
-            iconifyClass: languages_icons[langobjs[j]["name"]],
-          });
+const queries = {
+  pr: (username) => `query {
+    user(login: "${username}") {
+      pullRequests(last: 100, orderBy: {field: CREATED_AT, direction: DESC}) {
+        totalCount
+        nodes {
+          id
+          title
+          url
+          state
+          mergedBy {
+            avatarUrl
+            url
+            login
+          }
+          createdAt
+          number
+          changedFiles
+          additions
+          deletions
+          baseRepository {
+            name
+            url
+            owner {
+              avatarUrl
+              login
+              url
+            }
+          }
         }
       }
-      obj["languages"] = newLangobjs;
-      newProjects["data"].push(obj);
+    }
+  }`,
+  issue: (username) => `query {
+    user(login: "${username}") {
+      issues(last: 100, orderBy: {field: CREATED_AT, direction: DESC}) {
+        totalCount
+        nodes {
+          id
+          closed
+          title
+          createdAt
+          url
+          number
+          assignees(first: 100) {
+            nodes {
+              avatarUrl
+              name
+              url
+            }
+          }
+          repository {
+            name
+            url
+            owner {
+              login
+              avatarUrl
+              url
+            }
+          }
+        }
+      }
+    }
+  }`,
+  org: (username) => `query {
+    user(login: "${username}") {
+      repositoriesContributedTo(last: 100) {
+        totalCount
+        nodes {
+          owner {
+            login
+            avatarUrl
+            __typename
+          }
+        }
+      }
+    }
+  }`,
+  pinned: (username) => `query { 
+    user(login: "${username}") { 
+      pinnedItems(first: 6, types: REPOSITORY) {
+        totalCount
+        nodes {
+          ... on Repository {
+            id
+            name
+            createdAt,
+            url,
+            description,
+            isFork,
+            languages(first: 10) {
+              nodes {
+                name
+              }
+            }
+          }
+        }
+      }
+    }
+  }`
+};
+
+async function queryGitHub(username, queryFn) {
+  const body = JSON.stringify({
+    query: queryFn(username),
+  });
+
+  const response = await fetch(baseUrl, {
+    method: "POST",
+    headers: headers,
+    body: body,
+  });
+
+  const txt = await response.text();
+  try {
+    return JSON.parse(txt);
+  } catch (e) {
+    console.error(`Error parsing response for ${username}:`, txt);
+    return null;
+  }
+}
+
+async function main() {
+  console.log(`Starting data fetch for users: ${GITHUB_USERNAMES.join(", ")}...`);
+
+  let allPRs = { data: [], open: 0, closed: 0, merged: 0, totalCount: 0 };
+  let allIssues = { data: [], open: 0, closed: 0, totalCount: 0 };
+  let allOrgs = { data: [] };
+  let allProjects = { data: [] };
+
+  const orgLogins = new Set();
+  const projectIds = new Set();
+
+  for (const username of GITHUB_USERNAMES) {
+    console.log(`Fetching data for ${username}...`);
+
+    // Fetch PRs
+    const prData = await queryGitHub(username, queries.pr);
+    if (prData?.data?.user?.pullRequests) {
+      const nodes = prData.data.user.pullRequests.nodes;
+      allPRs.data.push(...nodes);
+      nodes.forEach(node => {
+        if (node.state === "OPEN") allPRs.open++;
+        else if (node.state === "MERGED") allPRs.merged++;
+        else allPRs.closed++;
+      });
     }
 
-    console.log("Fetching the Pinned Projects Data.\n");
-    fs.writeFile(
-      "./src/shared/opensource/projects.json",
-      JSON.stringify(newProjects),
-      function (err) {
-        if (err) {
-          console.log(
-            "Error occured in pinned projects 1",
-            JSON.stringify(err)
-          );
+    // Fetch Issues
+    const issueData = await queryGitHub(username, queries.issue);
+    if (issueData?.data?.user?.issues) {
+      const nodes = issueData.data.user.issues.nodes;
+      allIssues.data.push(...nodes);
+      nodes.forEach(node => {
+        if (!node.closed) allIssues.open++;
+        else allIssues.closed++;
+      });
+    }
+
+    // Fetch Orgs
+    const orgData = await queryGitHub(username, queries.org);
+    if (orgData?.data?.user?.repositoriesContributedTo) {
+      const nodes = orgData.data.user.repositoriesContributedTo.nodes;
+      nodes.forEach(node => {
+        if (node.owner) {
+          const owner = node.owner;
+          if (owner.__typename === "Organization" && !orgLogins.has(owner.login)) {
+            orgLogins.add(owner.login);
+            allOrgs.data.push(owner);
+          }
         }
-      }
-    );
-  })
-  .catch((error) =>
-    console.log("Error occured in pinned projects 2", JSON.stringify(error))
-  );
+      });
+    }
+
+    // Fetch Pinned Projects
+    const projectData = await queryGitHub(username, queries.pinned);
+    if (projectData?.data?.user?.pinnedItems) {
+      const nodes = projectData.data.user.pinnedItems.nodes;
+      nodes.forEach(node => {
+        if (node && !projectIds.has(node.id)) {
+          projectIds.add(node.id);
+
+          // Process languages
+          const newLangs = [];
+          if (node.languages && node.languages.nodes) {
+            node.languages.nodes.forEach(lang => {
+              if (languages_icons[lang.name]) {
+                newLangs.push({
+                  name: lang.name,
+                  iconifyClass: languages_icons[lang.name]
+                });
+              }
+            });
+          }
+          node.languages = newLangs;
+          allProjects.data.push(node);
+        }
+      });
+    }
+  }
+
+  allPRs.totalCount = allPRs.data.length;
+  allIssues.totalCount = allIssues.data.length;
+
+  console.log("Writing files...");
+
+  if (!fs.existsSync("./src/shared/opensource")) {
+    fs.mkdirSync("./src/shared/opensource", { recursive: true });
+  }
+
+  fs.writeFileSync("./src/shared/opensource/pull_requests.json", JSON.stringify(allPRs, null, 2));
+  fs.writeFileSync("./src/shared/opensource/issues.json", JSON.stringify(allIssues, null, 2));
+  fs.writeFileSync("./src/shared/opensource/organizations.json", JSON.stringify(allOrgs, null, 2));
+
+  // Update projects.json with aggregated projects
+  fs.writeFileSync("./src/shared/opensource/projects.json", JSON.stringify(allProjects, null, 2));
+
+  console.log("Success! Data aggregated from all profiles.");
+}
+
+main().catch(err => {
+  console.error("Aggregation failed:", err);
+});

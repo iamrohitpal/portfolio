@@ -1,24 +1,29 @@
 {
   "data": [
     {
-      "login": "Laravel",
-      "avatarUrl": "https://avatars.githubusercontent.com/u/958072?s=200&v=4",
-      "__typename": "Organization"
+      "login": "libre-pim",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/190806461?v=4",
+      "url": "https://github.com/libre-pim"
     },
     {
-      "login": "Bagisto",
-      "avatarUrl": "https://avatars.githubusercontent.com/u/43133047?s=200&v=4",
-      "__typename": "Organization"
+      "login": "bagisto",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/43133047?v=4",
+      "url": "https://github.com/bagisto"
     },
     {
-      "login": "Krayin Crm",
-      "avatarUrl": "https://avatars.githubusercontent.com/u/86250863?s=200&v=4",
-      "__typename": "Organization"
+      "login": "laravel",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/958072?v=4",
+      "url": "https://github.com/laravel"
     },
     {
-      "login": "Uno Pim",
-      "avatarUrl": "https://avatars.githubusercontent.com/u/176464716?s=200&v=4",
-      "__typename": "Organization"
+      "login": "krayin",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/86250863?v=4",
+      "url": "https://github.com/krayin"
+    },
+    {
+      "login": "unopim",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/176464716?v=4",
+      "url": "https://github.com/unopim"
     }
   ]
 }

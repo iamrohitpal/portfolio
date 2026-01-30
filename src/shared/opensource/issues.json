@@ -1,27 +1,47 @@
 {
-  "closed": 20,
+  "closed": 2,
   "data": [
     {
-      "id": "I_kwDOJPVIV85h7zXb",
+      "id": "I_10330",
       "closed": true,
-      "title": "Gradio demo for context-cluster Gradio demo for context-cluster Gradio demo for context-cluster Gradio demo for context-cluster",
-      "createdAt": "2023-03-28T01:43:37Z",
-      "url": "#",
-      "number": 1,
+      "title": "Categories section not showing in the product edit page when all attributes are moved to the Main column",
+      "createdAt": "2024-11-18T11:00:17Z",
+      "url": "https://github.com/bagisto/bagisto/issues/10330",
+      "number": 10330,
       "assignees": {
         "nodes": []
       },
       "repository": {
-        "name": "",
-        "url": "#",
+        "name": "bagisto",
+        "url": "https://github.com/bagisto/bagisto",
         "owner": {
-          "login": "iamrohitpal",
-          "avatarUrl": "#",
-          "url": "https://github.com/iamrohitpal"
+          "login": "bagisto",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/43133047?v=4",
+          "url": "https://github.com/bagisto"
+        }
+      }
+    },
+    {
+      "id": "I_10193",
+      "closed": true,
+      "title": "Unassigned Attributes and Right Side Column Not Displaying After Moving Groups to Main Column in Attribute Families",
+      "createdAt": "2024-10-18T04:45:52Z",
+      "url": "https://github.com/bagisto/bagisto/issues/10193",
+      "number": 10193,
+      "assignees": {
+        "nodes": []
+      },
+      "repository": {
+        "name": "bagisto",
+        "url": "https://github.com/bagisto/bagisto",
+        "owner": {
+          "login": "bagisto",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/43133047?v=4",
+          "url": "https://github.com/bagisto"
         }
       }
     }
   ],
-  "open": 4,
-  "totalCount": 59
+  "open": 0,
+  "totalCount": 2
 }

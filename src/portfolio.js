@@ -9,7 +9,7 @@ const settings = {
 const seo = {
   title: "Rohit Pal Portfolio",
   description:
-    "Experienced Web Developer with a demonstrated history of working in the information technology and services industry.",
+    "An experienced and passionate full-stack developer with over three years of expertise in creating cutting-edge web applications and robust backend systems.",
   og: {
     title: "Rohit Pal Portfolio",
     type: "website",
@@ -22,7 +22,7 @@ const greeting = {
   title: "Rohit Pal",
   logo_name: "Rohit Pal",
   subTitle:
-    "Experienced Web Developer with a demonstrated history of working in the information technology and services industry.",
+    "An experienced and passionate full-stack developer with over three years of expertise in creating cutting-edge web applications and robust backend systems. Specializing in modern web technologies to transform complex problems into elegant and efficient solutions. Proven track record in providing innovative and reliable software solutions.",
   resumeLink:
     "https://drive.google.com/file/d/1VyhU4RvO8jHtqu5j__Hm2NbgMY3Nq0uH/view",
   githubProfile: "https://github.com/iamrohitpal",
@@ -67,9 +67,24 @@ const skills = {
       title: "Full Stack Development",
       fileName: "FullStackImg",
       skills: [
-        "⚡ Building responsive website front end using PHP with Laravel",
-        "⚡ Developing web applications using PHP",
-        "⚡ Creating application backend in PHP",
+        "⚡ Laravel",
+        "⚡ Vue.js",
+        "⚡ React.js (Basic)",
+        "⚡ jQuery",
+        "⚡ PHP",
+        "⚡ JavaScript",
+        "⚡ GitHub",
+        "⚡ OOPS Concept",
+        "⚡ Tailwind CSS",
+        "⚡ Linux",
+        "⚡ Web Development",
+        "⚡ DBMS",
+        "⚡ CI/CD",
+        "⚡ Feature Testing",
+        "⚡ REST API",
+        "⚡ Git",
+        "⚡ Web Hosting",
+        "⚡ Agile Methodology",
       ],
       softwareSkills: [
         {
@@ -108,6 +123,20 @@ const skills = {
             color: "#CB3837",
           },
         },
+        {
+          skillName: "PHP",
+          fontAwesomeClassname: "simple-icons:php",
+          style: {
+            color: "#777BB4",
+          },
+        },
+        {
+          skillName: "Laravel",
+          fontAwesomeClassname: "simple-icons:laravel",
+          style: {
+            color: "#FF2D20",
+          },
+        },
       ],
     },
   ],
@@ -123,37 +152,37 @@ const degrees = {
     {
       title:
         "Madhu Vachaspati Institute of Engineering and Technology Kaushambi, Prayagraj",
-      subtitle: "B.Tech. in Computer Science And Engineering",
+      subtitle: "Bachelor of Technology",
       logo_path: "mviet.png",
       alt_name: "MVIET Kaushambi",
-      duration: "2022 - 2025",
-      descriptions: [
-        "⚡ Studied core software engineering subjects, including Data Structures, Algorithms, Database Management Systems (DBMS), Operating Systems (OS), Computer Architecture (CA), and Artificial Intelligence (AI).",
-        "⚡ Completed specialized courses in Deep Learning, Data Science, Cloud Computing, and Full Stack Development, gaining hands-on experience in modern technologies.",
-        "⚡ Achieved the Merit cum Means Scholarship, awarded to the top 10% of students for academic excellence.",
-        "⚡ Recognized for consistent outstanding performance in academics and received an award from the respected Director of the institution.",
-      ],
+      duration: "2022 – 2025",
+      descriptions: [],
       website_link: "https://mvite.co.in/",
     },
     {
-      title: "Government Polytechnic Aurai",
-      subtitle: "Diploma",
+      title: "Government Polytechnic Aurai, Bhadohi",
+      subtitle: "Diploma in Computer Science",
       logo_path: "diploma.png",
       alt_name: "Government Polytechnic Aurai",
-      duration: "2019 - 2022",
-      descriptions: [
-        "⚡ Gained a strong foundation in core engineering subjects, including Data Structures, Algorithms, Database Management Systems (DBMS), Operating Systems (OS), and Computer Architecture (CA).",
-        "⚡ Completed additional coursework in Deep Learning, Data Science, Cloud Computing, and Full Stack Development to enhance technical skills.",
-        "⚡ Awarded the Merit cum Means Scholarship, recognizing academic excellence among the top 10% of students.",
-        "⚡ Honored by the institution’s Director for consistent outstanding academic performance.",
-      ],
+      duration: "2019 – 2022",
+      descriptions: [],
       website_link: "https://www.gpaurai.ac.in/",
     },
   ],
 };
 
 const certifications = {
-  certifications: [],
+  certifications: [
+    {
+      title: "PHP Development",
+      subtitle: "Techpile Technology Private Limited",
+      logo_path: "techpile.png",
+      certificate_link: "",
+      alt_name: "Techpile",
+      color_code: "#000000",
+      duration: "May 2021 – July 2021",
+    },
+  ],
 };
 
 // Experience Page
@@ -161,7 +190,7 @@ const experience = {
   title: "Experience",
   subtitle: "Work and Internship",
   description:
-    "I am a passionate PHP Developer with hands-on experience in Laravel and web development. I started my journey as a PHP Developer Intern at Digicoders, where I gained practical knowledge in backend development, database management, and API integration. During my internship, I worked on real-world projects, improving my skills in writing clean code, debugging, and collaborating with senior developers.",
+    "An experienced and passionate full-stack developer with over three years of expertise in creating cutting-edge web applications and robust backend systems.",
   header_image_path: "experience.svg",
   sections: [
     {
@@ -170,52 +199,36 @@ const experience = {
       experiences: [
         {
           title: "Software Engineer",
-          company: "Webkul Pvt. Ltd.",
+          company: "Webkul Private Limited",
           company_url: "https://www.webkul.com/",
           logo_path: "webkul.webp",
-          duration: "Aug 2023 - Present",
-          location: "H-28, ARV Park, Noida, UP, IN",
+          duration: "Aug 2023 – Present",
+          location: "Uttar Pradesh, India",
           description:
-            "As a Software Engineer (PHP - Laravel) at Webkul, I specialize in developing high-quality web applications using PHP and the Laravel framework. My role involves designing, building, and maintaining scalable web solutions while ensuring optimal performance and security. I collaborate with cross-functional teams to implement robust features and enhance user experiences.",
+            "Contributed to the development and maintenance of Akeneo-based Product Information Management (PIM) solutions, gaining 1.5 years of hands-on experience and attaining intermediate proficiency (6/10). Worked extensively on Akeneo modules including DAM (Digital Asset Management) and AWS integration, improving media management workflows and enabling efficient cloud-based storage solutions. Played a key role in developing Librepim, a modernized Akeneo-based PIM distribution, by upgrading PHP, Symfony, Elasticsearch, and core dependencies to enhance performance, security, and long-term maintainability. Developed and maintained an open-source eCommerce and PIM platform using PHP and Laravel, achieving a 30% improvement in API response times through query optimization and caching strategies.",
           color: "#000000",
         },
         {
-          title: "PHP Developer",
+          title: "Jr. Web Developer",
           company: "Tekniko Global Private Limited",
           company_url: "https://www.teknikoglobal.com/",
           logo_path: "teknikoglobal.png",
-          duration: "Jun 2023 - Jul 2023",
-          location: "Noida, Uttar Pradesh, India",
+          duration: "Jun 2023 – Jul 2023",
+          location: "Uttar Pradesh, India",
           description:
-            "As a PHP - Laravel Developer at Tekniko Global Private Limited, I am responsible for developing and maintaining web applications using PHP and the Laravel framework. My role includes writing clean and efficient code, debugging issues, and collaborating with senior developers to build scalable and high-performing applications. I work closely with the team to implement new features, optimize performance, and ensure a smooth user experience.",
+            "Expanded and preserved web applications using CorePHP and Laravel, reducing page load times by 35% through optimized backend logic. Built responsive, cross-browser-compatible websites, leading to a 15% increase in user retention and accessibility improvements. Managed and deployed feature releases with zero downtime, ensuring smooth transitions and minimal service interruptions. Enhanced a club management web application with membership and event scheduling, boosting user engagement by 50%.",
           color: "#0879bf",
         },
         {
-          title: "Junior PHP Developer",
-          company: "Outright System Pvt. Ltd.",
+          title: "PHP Developer",
+          company: "Outright Systems Pvt. Ltd.",
           company_url: "https://www.outrightcrm.com/",
           logo_path: "outright.png",
-          duration: "Oct 2022 - Jun 2023",
-          location: "Noida, Uttar Pradesh, India",
+          duration: "Sep 2022 – May 2023",
+          location: "Uttar Pradesh, India",
           description:
-            "As a Junior PHP Developer at Outright System Pvt. Ltd., I am responsible for developing and maintaining web applications using PHP and the Laravel framework. My role includes writing clean and efficient code, debugging issues, and collaborating with senior developers to build scalable and high-performing applications. I work closely with the team to implement new features, optimize performance, and ensure a smooth user experience.",
+            "Enhanced web applications by improving UI/UX design, increasing user engagement by 25% and reducing bounce rates by 18%. Optimized database queries, improving data retrieval speed by 40% and boosting application efficiency by 20%. Contributed to the development and maintenance of the company’s website, ensuring 100% uptime and updated content for better user experience.",
           color: "#0879bf",
-        },
-      ],
-    },
-    {
-      title: "Internships",
-      experiences: [
-        {
-          title: "PHP Developer Intern",
-          company: "Techpile Technology Private Limited",
-          company_url: "https://www.techpile.in/",
-          logo_path: "techpile.png",
-          duration: "May 2021 - Aug 2021",
-          location: "Lucknow, IN",
-          description:
-            "As a PHP Developer Intern at Techpile Technology Private Limited, I am responsible for assisting in the development of web applications using PHP and Laravel. My role involves learning and implementing backend development practices, writing clean code, debugging issues, and collaborating with senior developers to enhance web applications. This internship provides hands-on experience in web development and an opportunity to improve my technical skills in a professional environment.",
-          color: "#000000",
         },
       ],
     },
@@ -226,7 +239,7 @@ const experience = {
 const projectsHeader = {
   title: "Projects",
   description:
-    "My projects leverage a wide range of modern technologies, focusing on building efficient, scalable, and user-friendly web applications. I specialize in developing and customizing solutions that enhance business operations and user experiences.",
+    "My projects leverage a wide range of modern technologies, focusing on building efficient, scalable, and user-friendly web applications.",
   avatar_image_path: "projects_image.svg",
 };
 
@@ -250,18 +263,18 @@ const contactPageData = {
   },
   addressSection: {
     title: "Address",
-    subtitle: "Gautam Budh Nagar, Noida, Uttar Pradesh, India",
-    locality: "Gautam Budh Nagar",
+    subtitle: "Noida, Uttar Pradesh, India",
+    locality: "Noida",
     country: "IN",
     region: "Uttar Pradesh",
-    postalCode: "201301",
-    streetAddress: "Saratoga Avenue",
+    postalCode: "",
+    streetAddress: "",
     avatar_image_path: "address_image.svg",
     location_map_link: "#",
   },
   phoneSection: {
-    title: "",
-    subtitle: "",
+    title: "Phone Number",
+    subtitle: "+91-9889702929",
   },
 };
 
